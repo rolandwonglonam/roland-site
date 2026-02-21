@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://rolandwayne.com/sitemap-index.xml

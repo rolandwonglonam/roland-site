@@ -1,0 +1,51 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Contact" description="Get in touch with Roland Wayne for research collaboration or education consulting inquiries.">
+  <section class="py-20">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">Contact</p>
+      <h1 class="font-serif text-4xl md:text-5xl mb-6">Let's Connect</h1>
+      <p class="text-text-secondary text-lg mb-16 max-w-2xl">
+        Whether you have a research question, are interested in consulting services,
+        or simply want to say hello — I'd love to hear from you.
+      </p>
+
+      <div class="grid md:grid-cols-2 gap-16">
+        <!-- Contact Info -->
+        <div class="space-y-8">
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-text-muted mb-2">Email</h3>
+            <a href="mailto:contact@rolandwayne.com" class="text-accent hover:text-accent-hover transition-colors">
+              contact@rolandwayne.com
+            </a>
+          </div>
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-text-muted mb-2">Location</h3>
+            <p class="text-text-secondary">Brisbane, Queensland, Australia</p>
+          </div>
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-text-muted mb-2">Academic Affiliation</h3>
+            <p class="text-text-secondary">University of Queensland</p>
+          </div>
+          <div>
+            <h3 class="text-sm uppercase tracking-wider text-text-muted mb-2">Company</h3>
+            <p class="text-text-secondary">Wayne Insight Spring (Hong Kong)</p>
+          </div>
+        </div>
+
+        <!-- Simple Contact Form (Formspree) -->
+        <div>
+          <!-- TODO: Register Formspree and replace YOUR_FORM_ID -->
+          <p class="text-text-muted text-sm mb-4">
+            Contact form coming soon. For now, please email directly.
+          </p>
+          <a href="mailto:contact@rolandwayne.com" class="inline-block px-6 py-3 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors">
+            Send Email
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

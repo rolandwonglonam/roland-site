@@ -1,17 +1,91 @@
 ---
-
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout
+  title="Home"
+  description="Roland Wayne — PhD researcher in Health Implementation Science and founder of Wayne Insight Spring, helping families navigate international medical education."
+>
+  <!-- Hero -->
+  <section class="min-h-[90vh] flex items-center">
+    <div class="max-w-6xl mx-auto px-6 py-20">
+      <div class="grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">
+            Researcher · Consultant · Educator
+          </p>
+          <h1 class="font-serif text-4xl md:text-6xl leading-tight mb-6">
+            Bridging<br />
+            <span class="text-accent">Health Science</span><br />
+            & Education
+          </h1>
+          <p class="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg">
+            PhD candidate at the University of Queensland researching cardiovascular
+            disease prevention. Founder of Wayne Insight Spring, guiding families
+            through international medical education decisions.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <a href="/services" class="px-6 py-3 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors text-center">
+              Explore Services
+            </a>
+            <a href="/research" class="px-6 py-3 border border-border text-text-secondary text-sm uppercase tracking-wider hover:border-accent hover:text-accent transition-colors text-center">
+              View Research
+            </a>
+          </div>
+        </div>
+        <div class="hidden md:block">
+          <!-- TODO: Replace with actual profile photo -->
+          <div class="aspect-[3/4] bg-tertiary border border-border flex items-center justify-center">
+            <p class="text-text-muted text-sm">Profile Photo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Three Pillars -->
+  <section class="bg-secondary py-20">
+    <div class="max-w-6xl mx-auto px-6">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
+          <div class="text-accent text-3xl font-serif mb-4">01</div>
+          <h3 class="text-lg font-medium mb-3">Academic Research</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Investigating low-sodium salt substitutes for cardiovascular disease prevention
+            within the Springfield Healthy Hearts project at UQ.
+          </p>
+        </div>
+        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
+          <div class="text-accent text-3xl font-serif mb-4">02</div>
+          <h3 class="text-lg font-medium mb-3">Education Consulting</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Premium guidance for families navigating international medical school
+            applications across Australia, UK, Hong Kong, and beyond.
+          </p>
+        </div>
+        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
+          <div class="text-accent text-3xl font-serif mb-4">03</div>
+          <h3 class="text-lg font-medium mb-3">Knowledge Sharing</h3>
+          <p class="text-text-secondary text-sm leading-relaxed">
+            Insights on AI-powered research thinking, decision-making frameworks,
+            and multidisciplinary approaches to complex problems.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-20">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <h2 class="font-serif text-3xl mb-6">Ready to Make Better Decisions?</h2>
+      <p class="text-text-secondary mb-8 text-lg">
+        Whether you're exploring medical education paths or interested in my research,
+        I'd love to hear from you.
+      </p>
+      <a href="/contact" class="inline-block px-8 py-4 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors">
+        Get in Touch
+      </a>
+    </div>
+  </section>
+</BaseLayout>
