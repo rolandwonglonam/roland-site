@@ -34,9 +34,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
           </div>
         </div>
         <div class="hidden md:block">
-          <!-- TODO: Replace with actual profile photo -->
-          <div class="aspect-[3/4] bg-tertiary border border-border flex items-center justify-center">
-            <p class="text-text-muted text-sm">Profile Photo</p>
+          <div class="aspect-[3/4] overflow-hidden border border-border">
+            <img
+              src="/profile.jpg"
+              alt="Roland Wayne"
+              class="w-full h-full object-cover object-top"
+            />
           </div>
         </div>
       </div>
