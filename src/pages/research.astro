@@ -1,67 +1,50 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'research');
+const d = page!.data;
 ---
 
-<BaseLayout title="Research" description="Roland Wayne's academic research in health implementation science, low-sodium salt substitutes, and cardiovascular disease prevention.">
+<BaseLayout title="研究" description="Roland Wayne 在健康实施科学、低钠盐替代品与心血管疾病预防领域的学术研究。">
   <section class="py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">Research</p>
-      <h1 class="font-serif text-4xl md:text-5xl mb-6">Academic Work</h1>
-      <p class="text-text-secondary text-lg mb-16 max-w-2xl">
-        My research sits at the intersection of health economics and implementation science,
-        focused on translating evidence-based interventions into real-world health outcomes.
-      </p>
+      <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">{d.subtitle}</p>
+      <h1 class="font-serif text-4xl md:text-5xl mb-6">{d.title}</h1>
+      <p class="text-text-secondary text-lg mb-16 max-w-2xl">{d.description}</p>
 
-      <!-- Current Research -->
       <div class="mb-16">
-        <h2 class="font-serif text-2xl mb-8 text-accent">Current Research</h2>
+        <h2 class="font-serif text-2xl mb-8 text-accent">{d.current_title}</h2>
         <div class="p-8 border border-border">
-          <h3 class="text-xl font-medium mb-3">Low-Sodium Salt Substitute Implementation for CVD Prevention</h3>
-          <p class="text-text-secondary text-sm leading-relaxed mb-4">
-            PhD research investigating the implementation of low-sodium salt substitutes
-            as a population-level strategy for cardiovascular disease prevention, integrated
-            with the Springfield Healthy Hearts project.
-          </p>
+          <h3 class="text-xl font-medium mb-3">{d.current.title}</h3>
+          <p class="text-text-secondary text-sm leading-relaxed mb-4">{d.current.desc}</p>
           <div class="flex flex-wrap gap-2">
-            <span class="text-xs text-accent border border-accent/30 px-2 py-1">Implementation Science</span>
-            <span class="text-xs text-accent border border-accent/30 px-2 py-1">Cardiovascular Health</span>
-            <span class="text-xs text-accent border border-accent/30 px-2 py-1">Discrete Choice Experiments</span>
+            {d.current.tags.map((tag: string) => (
+              <span class="text-xs text-accent border border-accent/30 px-2 py-1">{tag}</span>
+            ))}
           </div>
         </div>
       </div>
 
-      <!-- Publications -->
       <div class="mb-16">
-        <h2 class="font-serif text-2xl mb-8 text-accent">Publications & Manuscripts</h2>
+        <h2 class="font-serif text-2xl mb-8 text-accent">{d.publications_title}</h2>
         <div class="space-y-6">
-          <div class="p-6 border border-border hover:border-accent/30 transition-colors">
-            <p class="text-xs text-text-muted uppercase tracking-wider mb-2">Manuscript — Under Review</p>
-            <h3 class="text-lg font-medium mb-2">Scoping Review on Low-Sodium Salt Substitutes</h3>
-            <p class="text-text-secondary text-sm">
-              Submitted to the European Journal of Preventive Cardiology.
-            </p>
-          </div>
-          <div class="p-6 border border-border hover:border-accent/30 transition-colors">
-            <p class="text-xs text-text-muted uppercase tracking-wider mb-2">Master's Thesis — 2024</p>
-            <h3 class="text-lg font-medium mb-2">Consumer Preferences for Low-Sodium Salt Substitutes</h3>
-            <p class="text-text-secondary text-sm">
-              University of Queensland. Grade: 85.50%.
-            </p>
-          </div>
-          <!-- TODO: Add more publications -->
+          {d.publications.map((pub: any) => (
+            <div class="p-6 border border-border hover:border-accent/30 transition-colors">
+              <p class="text-xs text-text-muted uppercase tracking-wider mb-2">{pub.status}</p>
+              <h3 class="text-lg font-medium mb-2">{pub.title}</h3>
+              <p class="text-text-secondary text-sm">{pub.desc}</p>
+            </div>
+          ))}
         </div>
       </div>
 
-      <!-- Research Interests -->
       <div>
-        <h2 class="font-serif text-2xl mb-8 text-accent">Research Interests</h2>
+        <h2 class="font-serif text-2xl mb-8 text-accent">{d.interests_title}</h2>
         <div class="grid md:grid-cols-2 gap-4">
-          <div class="p-4 border border-border text-text-secondary text-sm">Health Implementation Science</div>
-          <div class="p-4 border border-border text-text-secondary text-sm">Discrete Choice Experiments</div>
-          <div class="p-4 border border-border text-text-secondary text-sm">Cardiovascular Disease Prevention</div>
-          <div class="p-4 border border-border text-text-secondary text-sm">Health Economics</div>
-          <div class="p-4 border border-border text-text-secondary text-sm">Behavioral Science</div>
-          <div class="p-4 border border-border text-text-secondary text-sm">Population Health Interventions</div>
+          {d.interests.map((item: string) => (
+            <div class="p-4 border border-border text-text-secondary text-sm">{item}</div>
+          ))}
         </div>
       </div>
     </div>

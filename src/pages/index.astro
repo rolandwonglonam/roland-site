@@ -1,93 +1,61 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'home');
+const d = page!.data;
 ---
 
-<BaseLayout
-  title="Home"
-  description="Roland Wayne — PhD researcher in Health Implementation Science and founder of Wayne Insight Spring, helping families navigate international medical education."
->
-  <!-- Hero -->
+<BaseLayout title="首页" description="Roland Wayne — 昆士兰大学健康实施科学博士候选人，Wayne Insight Spring 创始人。">
   <section class="min-h-[90vh] flex items-center">
     <div class="max-w-6xl mx-auto px-6 py-20">
       <div class="grid md:grid-cols-2 gap-16 items-center">
         <div>
-          <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">
-            Researcher · Consultant · Educator
-          </p>
+          <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">{d.tagline}</p>
           <h1 class="font-serif text-4xl md:text-6xl leading-tight mb-6">
-            Bridging<br />
-            <span class="text-accent">Health Science</span><br />
-            & Education
+            {d.title_line1}<br />
+            <span class="text-accent">{d.title_accent}</span><br />
+            {d.title_line2}
           </h1>
-          <p class="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg">
-            PhD candidate at the University of Queensland researching cardiovascular
-            disease prevention. Founder of Wayne Insight Spring, guiding families
-            through international medical education decisions.
-          </p>
+          <p class="text-text-secondary text-lg leading-relaxed mb-8 max-w-lg">{d.description}</p>
           <div class="flex flex-col sm:flex-row gap-4">
             <a href="/services" class="px-6 py-3 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors text-center">
-              Explore Services
+              {d.cta_primary}
             </a>
             <a href="/research" class="px-6 py-3 border border-border text-text-secondary text-sm uppercase tracking-wider hover:border-accent hover:text-accent transition-colors text-center">
-              View Research
+              {d.cta_secondary}
             </a>
           </div>
         </div>
         <div class="hidden md:block">
           <div class="aspect-[3/4] overflow-hidden border border-border">
-            <img
-              src="/profile.jpg"
-              alt="Roland Wayne"
-              class="w-full h-full object-cover object-top"
-            />
+            <img src="/profile.jpg" alt="Roland Wayne" class="w-full h-full object-cover object-top" />
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Three Pillars -->
   <section class="bg-secondary py-20">
     <div class="max-w-6xl mx-auto px-6">
       <div class="grid md:grid-cols-3 gap-8">
-        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
-          <div class="text-accent text-3xl font-serif mb-4">01</div>
-          <h3 class="text-lg font-medium mb-3">Academic Research</h3>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Investigating low-sodium salt substitutes for cardiovascular disease prevention
-            within the Springfield Healthy Hearts project at UQ.
-          </p>
-        </div>
-        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
-          <div class="text-accent text-3xl font-serif mb-4">02</div>
-          <h3 class="text-lg font-medium mb-3">Education Consulting</h3>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Premium guidance for families navigating international medical school
-            applications across Australia, UK, Hong Kong, and beyond.
-          </p>
-        </div>
-        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
-          <div class="text-accent text-3xl font-serif mb-4">03</div>
-          <h3 class="text-lg font-medium mb-3">Knowledge Sharing</h3>
-          <p class="text-text-secondary text-sm leading-relaxed">
-            Insights on AI-powered research thinking, decision-making frameworks,
-            and multidisciplinary approaches to complex problems.
-          </p>
-        </div>
+        {d.pillars.map((p: any) => (
+          <div class="p-8 border border-border hover:border-accent/30 transition-colors">
+            <div class="text-accent text-3xl font-serif mb-4">{p.number}</div>
+            <h3 class="text-lg font-medium mb-3">{p.title}</h3>
+            <p class="text-text-secondary text-sm leading-relaxed">{p.desc}</p>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="py-20">
     <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="font-serif text-3xl mb-6">Ready to Make Better Decisions?</h2>
-      <p class="text-text-secondary mb-8 text-lg">
-        Whether you're exploring medical education paths or interested in my research,
-        I'd love to hear from you.
-      </p>
+      <h2 class="font-serif text-3xl mb-6">{d.cta_title}</h2>
+      <p class="text-text-secondary mb-8 text-lg">{d.cta_desc}</p>
       <a href="/contact" class="inline-block px-8 py-4 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors">
-        Get in Touch
+        {d.cta_button}
       </a>
     </div>
   </section>

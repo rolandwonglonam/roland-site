@@ -1,71 +1,44 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import { getEntry } from 'astro:content';
+
+const page = await getEntry('pages', 'services');
+const d = page!.data;
 ---
 
-<BaseLayout title="Services" description="Wayne Insight Spring — Premium international medical education consulting for families seeking the best paths forward.">
+<BaseLayout title="服务" description="Wayne Insight Spring — 为家庭提供国际医学教育的高端咨询服务。">
   <section class="py-20">
     <div class="max-w-4xl mx-auto px-6">
-      <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">Services</p>
-      <h1 class="font-serif text-4xl md:text-5xl mb-6">Wayne Insight Spring</h1>
-      <p class="text-text-secondary text-lg mb-16 max-w-2xl">
-        We help families make high-quality decisions about international medical education —
-        not just secure admissions, but find the right path forward.
-      </p>
+      <p class="text-accent uppercase tracking-[0.3em] text-sm mb-4">{d.subtitle}</p>
+      <h1 class="font-serif text-4xl md:text-5xl mb-6">{d.title}</h1>
+      <p class="text-text-secondary text-lg mb-16 max-w-2xl">{d.description}</p>
 
-      <!-- Philosophy -->
       <div class="bg-secondary p-8 border border-border mb-16">
-        <p class="text-accent font-serif text-lg mb-4">敬天爱人，敬畏因果</p>
-        <p class="text-text-secondary leading-relaxed">
-          Our philosophy centers on respect, integrity, and long-term thinking. We believe the
-          quality of a decision matters more than any single outcome. Every family deserves
-          guidance that considers the full picture — academic fit, personal growth, career
-          trajectory, and life satisfaction.
-        </p>
+        <p class="text-accent font-serif text-lg mb-4">{d.philosophy}</p>
+        <p class="text-text-secondary leading-relaxed">{d.philosophy_desc}</p>
       </div>
 
-      <!-- Service Tiers -->
       <div class="space-y-8 mb-16">
-        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-            <h3 class="text-xl font-medium">Comprehensive Application Guidance</h3>
-            <span class="text-accent font-serif text-lg">Premium</span>
+        {d.services.map((svc: any) => (
+          <div class="p-8 border border-border hover:border-accent/30 transition-colors">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
+              <h3 class="text-xl font-medium">{svc.title}</h3>
+              <span class="text-accent font-serif text-lg">{svc.tier}</span>
+            </div>
+            <p class="text-text-secondary text-sm leading-relaxed mb-4">{svc.desc}</p>
+            <div class="flex flex-wrap gap-2">
+              {svc.tags.map((tag: string) => (
+                <span class="text-xs text-text-muted border border-border px-2 py-1">{tag}</span>
+              ))}
+            </div>
           </div>
-          <p class="text-text-secondary text-sm leading-relaxed mb-4">
-            Full-service, multi-year guidance for families navigating international medical school
-            applications. Includes strategic planning, school selection, application preparation,
-            interview coaching, and post-admission support across Australia, UK, Hong Kong, and more.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs text-text-muted border border-border px-2 py-1">Strategic Planning</span>
-            <span class="text-xs text-text-muted border border-border px-2 py-1">School Selection</span>
-            <span class="text-xs text-text-muted border border-border px-2 py-1">Application Review</span>
-            <span class="text-xs text-text-muted border border-border px-2 py-1">Interview Prep</span>
-          </div>
-        </div>
-
-        <div class="p-8 border border-border hover:border-accent/30 transition-colors">
-          <div class="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-            <h3 class="text-xl font-medium">AI Research Thinking Course</h3>
-            <span class="text-accent font-serif text-lg">Course</span>
-          </div>
-          <p class="text-text-secondary text-sm leading-relaxed mb-4">
-            Learn how to leverage AI tools for academic research, critical thinking,
-            and decision-making. Designed for undergraduate and graduate students who
-            want to think more rigorously and work more efficiently.
-          </p>
-          <div class="flex flex-wrap gap-2">
-            <span class="text-xs text-text-muted border border-border px-2 py-1">AI Tools</span>
-            <span class="text-xs text-text-muted border border-border px-2 py-1">Research Methods</span>
-            <span class="text-xs text-text-muted border border-border px-2 py-1">Critical Thinking</span>
-          </div>
-        </div>
+        ))}
       </div>
 
-      <!-- CTA -->
       <div class="text-center py-12">
-        <p class="text-text-secondary mb-6">Interested in working together?</p>
+        <p class="text-text-secondary mb-6">{d.cta_intro}</p>
         <a href="/contact" class="inline-block px-8 py-4 bg-accent text-primary font-medium text-sm uppercase tracking-wider hover:bg-accent-hover transition-colors">
-          Schedule a Consultation
+          {d.cta_button}
         </a>
       </div>
     </div>
