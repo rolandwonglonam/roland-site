@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&family=DM+Serif+Display&display=swap');
 
 @theme {
@@ -25,6 +26,57 @@ body {
   background-color: #0A0A0A;
   color: #F5F5F5;
   line-height: 1.7;
+}
+
+/* Blog article fallback styles */
+.prose p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
+}
+
+.prose h1, .prose h2, .prose h3 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: 'DM Serif Display', serif;
+  color: #F5F5F5;
+}
+
+.prose h2 {
+  font-size: 1.75rem;
+}
+
+.prose h3 {
+  font-size: 1.25rem;
+}
+
+.prose blockquote {
+  border-left: 4px solid #C9A96E;
+  padding-left: 1.5rem;
+  font-style: italic;
+  color: #A0A0A0;
+  margin: 1.5rem 0;
+}
+
+.prose img {
+  border-radius: 0.5rem;
+  margin: 2rem 0;
+}
+
+.prose a {
+  color: #C9A96E;
+}
+
+.prose a:hover {
+  color: #D4B97D;
+}
+
+.prose ul, .prose ol {
+  margin: 1rem 0;
+  padding-left: 1.5rem;
+}
+
+.prose li {
+  margin-bottom: 0.5rem;
 }
 
 /* Custom scrollbar */
