@@ -229,6 +229,18 @@ export const books = [
     thickness: 22,
     href: "https://www.rolandwayne.com/blog/x-2050050113142509886/",
   },
+  {
+    id: "x-2054523563248611675",
+    number: "18",
+    title: "Hermes+Obsidian+LLM Wiki搭建本地知识库",
+    kicker: "Hermes Agent / Obsidian",
+    year: "2026",
+    artwork: "/assets/books/x-2054523563248611675.png",
+    tone: "light",
+    accent: "#66733f",
+    thickness: 18,
+    href: "https://www.rolandwayne.com/blog/x-2054523563248611675/",
+  },
 ];
 
 export function Book({ book, clone, stack, onActivate, onDeactivate }) {
