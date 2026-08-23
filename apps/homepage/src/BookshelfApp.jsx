@@ -241,6 +241,18 @@ export const books = [
     thickness: 18,
     href: "https://www.rolandwayne.com/blog/x-2054523563248611675/",
   },
+  {
+    id: "x-2059602157746401626",
+    number: "19",
+    title: "中银香港昨天的动作之后，留学生身份突然成了中产最稀缺的一张牌",
+    kicker: "留学规划 / 跨境金融",
+    year: "2026",
+    artwork: "/assets/books/x-2059602157746401626.png",
+    tone: "light",
+    accent: "#8d5b3a",
+    thickness: 25,
+    href: "https://www.rolandwayne.com/blog/x-2059602157746401626/",
+  },
 ];
 
 export function Book({ book, clone, stack, onActivate, onDeactivate }) {
