@@ -253,6 +253,18 @@ export const books = [
     thickness: 25,
     href: "https://www.rolandwayne.com/blog/x-2059602157746401626/",
   },
+  {
+    id: "x-2071575641951252490",
+    number: "20",
+    title: "我用三篇蛋白质论文，测出了 AI 在科研里的边界",
+    kicker: "AI科研 / 蛋白质研究",
+    year: "2026",
+    artwork: "/assets/books/x-2071575641951252490.png",
+    tone: "light",
+    accent: "#8a4f68",
+    thickness: 30,
+    href: "https://www.rolandwayne.com/blog/x-2071575641951252490/",
+  },
 ];
 
 export function Book({ book, clone, stack, onActivate, onDeactivate }) {
