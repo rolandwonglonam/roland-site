@@ -265,6 +265,18 @@ export const books = [
     thickness: 30,
     href: "https://www.rolandwayne.com/blog/x-2071575641951252490/",
   },
+  {
+    id: "x-2083174502889144369",
+    number: "21",
+    title: "AI越强，输出比阅读越重要",
+    kicker: "AI / 输出",
+    year: "2026",
+    artwork: "/assets/books/x-2083174502889144369.png",
+    tone: "light",
+    accent: "#536b91",
+    thickness: 28,
+    href: "https://www.rolandwayne.com/blog/x-2083174502889144369/",
+  },
 ];
 
 export function Book({ book, clone, stack, onActivate, onDeactivate }) {
